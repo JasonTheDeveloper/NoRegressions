@@ -20,7 +20,7 @@ namespace cli.Handlers
         {
             if (verb.Upload) 
             {
-                string container = verb.Destination;
+                string container = verb.Destination.ToLower();
                 string file = verb.FolderPath;
 
                 await service.Upload(file, container);

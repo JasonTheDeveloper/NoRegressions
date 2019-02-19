@@ -15,8 +15,12 @@ namespace cli.Models {
         
         [JsonProperty("endpoint")]
         public string Endpoint {get;set;}
+
         [JsonProperty("iterationId")]
         public string IterationId {get;set;}
+
+        [JsonProperty("projectId")]
+        public string ProjectId {get;set;}
     }
     public class StorageModel {
         public RemoteModel remote { get; set; }

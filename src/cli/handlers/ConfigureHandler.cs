@@ -42,6 +42,12 @@ namespace cli.Handlers
                         case "cv-endpoint":
                             WriteCustomVisionEndpointToConfig(verb.Value);
                             break;
+                        case "cv-projectId":
+                            WriteCustomVisionProjectIdToConfig(verb.Value);
+                            break;
+                        case "cv-iterationId":
+                            WriteCustomVisionIterationIdToConfig(verb.Value);
+                            break;
                     }
                 }
             });
@@ -68,6 +74,30 @@ namespace cli.Handlers
             }
             model.CustomVision.Endpoint = endpoint;
             logger.Log($"Set Custom Vision Endpoint to {endpoint}");
+            SaveConfigurationModel(model);
+        }
+
+        private void WriteCustomVisionProjectIdToConfig(string projectId)
+        {
+            var model = LoadConfigurationModel();
+            if (model.CustomVision == null)
+            {
+                model.CustomVision = new CustomVisionConfig();
+            }
+            model.CustomVision.ProjectId = projectId;
+            logger.Log($"Set Custom Vision Endpoint to {projectId}");
+            SaveConfigurationModel(model);
+        }
+
+        private void WriteCustomVisionIterationIdToConfig(string iterationId)
+        {
+            var model = LoadConfigurationModel();
+            if (model.CustomVision == null)
+            {
+                model.CustomVision = new CustomVisionConfig();
+            }
+            model.CustomVision.IterationId = iterationId;
+            logger.Log($"Set Custom Vision Endpoint to {iterationId}");
             SaveConfigurationModel(model);
         }
 

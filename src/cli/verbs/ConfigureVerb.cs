@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using CommandLine;
+using CommandLine.Text;
 
 namespace cli.Verbs
 {
@@ -16,5 +18,19 @@ namespace cli.Verbs
 
         [Option('v', "value", Required = false, HelpText = "New value of key in settings")]
         public string Value { get; set; }
+
+        [Usage(ApplicationAlias = "noreg")] 
+        public static IEnumerable<Example> Examples 
+        { 
+            get 
+            { 
+                return new List<Example>() { 
+                    new Example("Set CustomVision endpoint", new ConfigureVerb { Key = "cv-endpoint", Value = "https://REGION.api.cognitive.microsoft.com/customvision/v2.0/Prediction/" }),
+                    new Example("Set CustomVision key", new ConfigureVerb { Key = "cv-key", Value = "YOUR-PREDICTION-KEY" }),
+                    new Example("Set CustomVision project Id", new ConfigureVerb { Key = "cv-projectId", Value = "YOUR-PROJECT-ID" }),
+                    new Example("Set CustomVision iteration Id", new ConfigureVerb { Key = "cv-iterationId", Value = "YOUR-ITERATION-ID" }),
+                }; 
+            } 
+        }
     }
 }

@@ -17,12 +17,14 @@ namespace core.Target
         private readonly HttpClient httpClient;
         private string Endpoint;
         private string Key;
+        private string ProjectId;
         private string IterationId;
 
         public CustomVisionTarget(IConfiguration configuration)
         {
             Key = configuration["customVision:predictionKey"];
             Endpoint = configuration["customVision:endpoint"];
+            ProjectId = configuration["customVision:projectId"];
             IterationId = configuration["customVision:iterationId"];
 
             if (string.IsNullOrEmpty(Key))
@@ -32,6 +34,10 @@ namespace core.Target
             if (string.IsNullOrEmpty(Endpoint))
             {
                 throw new NullReferenceException("Custom Vision Endpoint cannot be null or empty");
+            }
+            if (string.IsNullOrEmpty(ProjectId))
+            {
+                throw new NullReferenceException("Custom Vision Project Id cannot be null or empty");
             }
             httpClient = new HttpClient();
             httpClient.DefaultRequestHeaders.Add("Prediction-Key", Key);
@@ -47,7 +53,7 @@ namespace core.Target
         {
             var serialized = JsonConvert.SerializeObject(new { Url = url });
             var content = new StringContent(serialized, Encoding.UTF8, "application/json");
-            var fullyQualifiedEndpoint = Endpoint + $"?iterationId={IterationId}";
+            var fullyQualifiedEndpoint = Endpoint + $"{ProjectId}/url?iterationId={IterationId}";
             var httpResponse = await httpClient.PostAsync(fullyQualifiedEndpoint, content);
             if(! httpResponse.IsSuccessStatusCode) 
             {

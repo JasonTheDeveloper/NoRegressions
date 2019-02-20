@@ -13,13 +13,17 @@ namespace cli.Verbs.Dataset
         [Option("id", Required = true, HelpText = "Id of the dataset")]
         public string Id { get; set; }
 
+        [Option('o', "output", Required = false, HelpText = "Output file.")] 
+        public string Output { get; set; } 
+
         [Usage(ApplicationAlias = "noreg")] 
         public static IEnumerable<Example> Examples 
         { 
             get 
             { 
                 return new List<Example>() { 
-                    new Example("Returns list of items in a dataset", new ReadDatasetVerb { Id = "test-set" }) 
+                    new Example("Returns list of items in a dataset", new ReadDatasetVerb { Id = "test-set" }),
+                    new Example("Outputs dataset as json file", new ReadDatasetVerb { Id = "test-set", Output = "./" }) 
                 }; 
             } 
         }

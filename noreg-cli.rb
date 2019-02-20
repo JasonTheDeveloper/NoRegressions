@@ -1,8 +1,8 @@
 class NoregCli < Formula
     desc "Deploy machine learning with confidence."
     homepage "https://github.com/JasonTheDeveloper/NoRegressions"
-    url "https://github.com/JasonTheDeveloper/NoRegressions/releases/download/v0.0.3-mac/noreg-osx-x64.tar.gz"
-    sha256 "548216d5584f7d290d23e86e8a34ea6e857bf7a09f1995e0c620cec1aa0f71fb"
+    url "https://github.com/JasonTheDeveloper/NoRegressions/releases/download/v0.0.4-mac/noreg-osx-x64.tar.gz"
+    sha256 "64e3a782c3bee5c94b9191ce4f289c66d1453bca401b951db3fb6a85a57c2db8"
   
     def install
         mv "./noreg-cli", "./noreg"

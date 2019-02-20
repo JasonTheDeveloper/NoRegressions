@@ -1,10 +1,12 @@
 using System;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using cli.Contract;
 using cli.Verbs.Dataset;
 using core.Contract;
 using core.Model;
+using Newtonsoft.Json;
 
 namespace cli.Handlers.Dataset
 {
@@ -42,6 +44,12 @@ namespace cli.Handlers.Dataset
                 logger.Log($"There are {resolved.LabelledImages.Count()} images in the set");
                 var labelCount = resolved.LabelledImages.Select(i => i.Label).Distinct().Count();
                 logger.Log($"There are {labelCount} labels");
+
+                if (StringExists(verb.Output))
+                {
+                    var json = JsonConvert.SerializeObject(resolved);
+                    File.WriteAllText(verb.Output + "/" + verb.Id + ".json", json);
+                }
             }
             else
             {

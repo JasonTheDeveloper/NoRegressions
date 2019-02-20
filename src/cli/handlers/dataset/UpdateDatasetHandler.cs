@@ -66,6 +66,7 @@ namespace cli.Handlers.Dataset
                         dataset.AddLabelledImage(verb.Label, url);
                     }
 
+                    dataset.Type = emptySet.Type;
                     await datasetService.Set(dataset);
 
                 }

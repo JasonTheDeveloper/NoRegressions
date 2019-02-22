@@ -1,9 +1,9 @@
 #!/bin/bash
 set -e
-NOREG_VERSION="v0.0.2"
+NOREG_VERSION="v0.0.4"
 
 echo "Installing NoRegressions..."
-URL="https://github.com/xtellurian/NoRegressions/releases/download/$NOREG_VERSION/noreg-linux-x64.zip"
+URL="https://github.com/JasonTheDeveloper/NoRegressions/releases/download/$NOREG_VERSION/noreg-linux-x64.zip"
 
 # download the file
 mkdir -p  ~/.noreg

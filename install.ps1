@@ -3,14 +3,14 @@
 ####################################################################################
 
 # choose your release version
-$RELEASE_VERSION="v0.0.2"
+$RELEASE_VERSION="v0.0.4"
 ### Set install location
 $INSTALL_DIR = Join-Path -Path $HOME -ChildPath ".noreg"
 
 echo "Installing NoRegressions...";
 
 # set some variables
-$URI="https://github.com/xtellurian/NoRegressions/releases/download/$RELEASE_VERSION/noreg-win10-x64.zip"
+$URI="https://github.com/JasonTheDeveloper/NoRegressions/releases/download/$RELEASE_VERSION/noreg-win10-x64.zip"
 $ZIPFILENAME="noreg-$RELEASE_VERSION.zip"
 $ZIPFILE = Join-Path -Path $INSTALL_DIR -ChildPath $ZIPFILENAME
 

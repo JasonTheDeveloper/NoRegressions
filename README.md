@@ -25,13 +25,13 @@ NoRegressions provides a CLI that can:
 On Windows:
 
 ```powershell
-iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/xtellurian/NoRegressions/install/install.ps1'))
+iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/JasonTheDeveloper/NoRegressions/master/install.ps1'))
 ```
 
 On Linux:
 
 ```sh
-wget -O - https://raw.githubusercontent.com/xtellurian/NoRegressions/install/install.sh | bash
+wget -O - https://raw.githubusercontent.com/JasonTheDeveloper/NoRegressions/master/install.sh | bash
 ```
 
 On Mac:
